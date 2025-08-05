@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Godly Agunwa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .hero-section {
+      height: 100vh;
+      background: linear-gradient(-45deg, #0d0d0d, #2e004f, #4b0082, #000);
+      background-size: 400% 400%;
+      animation: gradientFlow 12s ease infinite;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      border-top-right-radius: 30px;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .top-buttons {
+      position: absolute;
+      top: 40px;
+      left: 20px;
+      right: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-links a {
+      padding: 10px 20px;
+      border: 1px solid white;
+      border-radius: 30px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .nav-links a:hover {
+      background-color: white;
+      color: #4b0082;
+    }
+
+    .hero-section h1 {
+      font-size: 80px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero-section p {
+      font-size: 18px;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .hero-section h1 {
+        font-size: 40px;
+      }
+
+      .top-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
+
+      .nav-links a {
+        padding: 8px 16px;
+      }
+
+.section-divider {
+  border: none;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 60px auto;
+  width: 80%;
+}
+
+.section_intro{
+            background-color: #0a0909;
+            font-family: 'Courier New', Courier, monospace, sans-serif;
+            height: 100vh;
+            align-items: center;
+            color: #fff;
+        }
+    }
+
+  </style>
+</head>
+<body>
+
+  <section class="hero-section">
+    <div class="top-buttons">
+      <div class="logo">
+        <img src="reallogo-removebg-preview.png" alt="Logo" />
+      </div>
+
+       <div class="nav-links">
+          <a href="#home">HOME</a>
+          <a href="#about">ABOUT ME</a>
+          <a href="#connect">CONNECT</a>
+       </div>
+        
+      
+
+    <h1>Godly Agunwa</h1>
+    <p>
+      Hi, I’m a Nigerian Based Product designer.<br />
+      I love finding simple solutions to complex problems.
+    </p>
+  </section>
+
+  <hr class="section-divider">
+
+   <section id="intro" class="section_intro">
+
+   <div class="fly">
+       <p>Great design should aspire to feel obvious, like there was never a better way to do it.</p>
+   </div>
+</section>
+
+</body>
+</html>

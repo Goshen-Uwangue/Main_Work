@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Godly Agunwa</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      font-family: 'Outfit', sans-serif;
+      height: 100%;
+      background: #0d0d0d;
+      color: white;
+    }
+
+    .hero-section {
+      height: 100vh;
+      background: linear-gradient(-45deg, #0d0d0d, #2e004f, #4b0082, #000);
+      background-size: 400% 400%;
+      animation: gradientFlow 12s ease infinite;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 20px;
+      text-align: center;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .top-buttons {
+      position: absolute;
+      top: 30px;
+      left: 20px;
+      right: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      position: relative;
+    }
+
+    .nav-links a,
+    .connect-btn {
+      padding: 10px 20px;
+      border: 1px solid white;
+      border-radius: 30px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .nav-links a:hover,
+    .connect-btn:hover {
+      background-color: white;
+      color: #4b0082;
+    }
+
+    .connect-container {
+      position: relative;
+    }
+
+    .icon-popup {
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #1a1a1a;
+      padding: 10px 15px;
+      border-radius: 10px;
+      display: flex;
+      gap: 12px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 1000;
+    }
+
+    .icon-popup a {
+      color: white;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+
+    .icon-popup a:hover {
+      color: #4b0082;
+    }
+
+    /* Show icons on hover - desktop */
+    .connect-container:hover .icon-popup {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(10px);
+    }
+
+    /* Hero text */
+    .hero-section h1 {
+      font-size: 70px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero-section p {
+      font-size: 18px;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .top-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .connect-container:hover .icon-popup {
+        /* disable hover effect on small screens */
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .connect-container .icon-popup.active {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateX(-50%) translateY(10px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero-section">
+    <div class="top-buttons">
+      <div class="logo">
+        <img src="reallogo-removebg-preview.png" alt="Logo">
+      </div>
+
+      <div class="nav-links">
+        <a href="#about">ABOUT ME</a>
+        <div class="connect-container">
+          <a href="#connect" class="connect-btn" onclick="toggleIcons(event)">CONNECT</a>
+          <div class="icon-popup" id="popup-icons">
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://behance.net" target="_blank"><i class="fab fa-behance"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:youremail@example.com"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h1>Godly Agunwa</h1>
+    <p>
+      Hi, I’m a Nigerian Based Product designer.<br>
+      I love finding simple solutions to complex problems.
+    </p>
+  </section>
+
+  <script>
+    function toggleIcons(e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        const popup = document.getElementById("popup-icons");
+        popup.classList.toggle("active");
+      }
+    }
+  </script>
+
+</body>
+</html>

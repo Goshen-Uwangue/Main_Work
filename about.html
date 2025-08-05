@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Coded_UX</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+  
+body {
+  background: black;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  padding: 10px 20px;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid white;
+  border-radius: 25px;
+  color: white;
+  text-decoration: none;
+  background: transparent;
+  font-weight: 500;
+  transition: background 0.3s, color 0.3s;
+}
+
+.nav-btn:hover {
+  background-color: white;
+  color: #4b0082;
+}
+
+
+.connect-container {
+  position: relative;
+}
+
+.icon-popup {
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111;
+  border: 1px solid #555;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  gap: 15px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.connect-container:hover .icon-popup {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.icon-popup a {
+  color: white;
+  font-size: 18px;
+  transition: color 0.4s ease;
+}
+
+.icon-popup a:hover {
+  color:#4b0082;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .icon-popup {
+    left: 0;
+    transform: none;
+  }
+}
+
+.about-section {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.about-wrapper {
+  max-width: 1000px;
+  width: 100%;
+  padding: 40px;
+  background-color: #0e0e0e;
+  border-radius: 10px;
+  line-height: 1.8;
+}
+
+.float-img {
+  float: left;
+  width: 300px;
+  height: auto;
+  margin-right: 30px;
+  border-radius: 10px;
+}
+
+.about-wrapper p {
+  margin-bottom: 1.5rem;
+  color: #ddd;
+  text-align: justify;
+}
+
+@media (max-width: 768px) {
+  .top-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .float-img {
+    float: none;
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .about-wrapper p {
+    text-align: left;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">Coded_UX</div>
+    <div class="nav-links">
+     <a href="home5.html" class="nav-btn">HOME</a>
+     <a href="about.html" class="nav-btn">ABOUT ME</a>
+        
+      <div class="connect-container">
+        <button class="nav-btn">CONNECT</button>
+        <div class="icon-popup">
+          <a href="http://linkedin.com/in/godlyagunwa" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href=" behance.net/agunwagodly" title="Behance"><i class="fab fa-behance"></i></a>
+          <a href="agunwagodly4@gmail.com" title="Gmail"><i class="fas fa-envelope"></i></a>
+          <a href=" https://www.instagram.com/coded_ux?igsh=Zmxtd3duaDlmcmY1" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="about-section">
+    <div class="about-wrapper">
+      <img src="aguwa.png.png" alt="Portrait of Godly Agunwa" class="float-img" />
+
+      <p><strong>I am Godly Agunwa</strong> — a Product Designer who’s obsessed with building real products that solve real problems for real users.</p>
+      <p>My journey into product design wasn’t just about aesthetics. It was born out of a deep curiosity for how people think, struggle, adapt, and interact with digital tools. Over the years, I’ve helped founders,
+          co-founders, and developers bring their ideas to life — not just through clean UI (User Interface), but thoughtful UX (User Experience) that genuinely works.</p>
+      
+      <p>I believe good design isn’t loud — it’s invisible. It disappears behind clarity, empathy, and usability. 
+        And that belief has guided my work across countless design sprints, wireframe scraps, pixel-perfect layouts, and late-night user interviews.</p>
+
+      <p>On LinkedIn, I create bold, practical content that connects deeply with startup builders — the people wearing too many hats and still trying to launch something meaningful. 
+        I talk about the messy parts of design: ego, iteration, mistakes, and learning fast by listening.</p>
+
+      <p>What sets me apart isn’t a beautiful portfolio.
+         It’s that I speak product as much as I speak design. I’m here for the founders who want a design partner — not just a screen decorator.
+         When I’m not designing, I’m sharing tools, ideas, and resources that help both designers and developers work smarter, build faster,
+         and stay creative.</p>
+
+      <p>Let’s build what matters. And make sure it feels damn good to use.</p>
+    </div>
+  </main>
+</body>
+</html>
