@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Godly Agunwa</title>
+  <meta name="description" content="Godly Agunwa - Nigerian Product Designer Portfolio. Showcasing design principles, projects, and testimonials." />
+  <meta name="author" content="Godly Agunwa" />
+  <meta name="keywords" content="UX Designer, Product Designer, Portfolio, Nigeria, UI Design">
+  <meta property="og:title" content="Godly Agunwa - Product Designer Portfolio">
+  <meta property="og:description" content="Showcasing design principles, projects, and testimonials.">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;700&display=swap" rel="stylesheet" />
-  
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <title>Coded_UX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
     * {
@@ -18,69 +20,53 @@
       box-sizing: border-box;
     }
 
-    body, html {
-      font-family: 'Outfit', sans-serif;
-      height: 100%;
-      background: #0d0d0d;
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(-45deg, #0d0d0d, #2e004f, #4b0082, #000);
+      background-size: 400% 400%;
+      animation: gradientMove 12s ease infinite;
       color: white;
     }
 
-    .hero-section {
-      height: 100vh;
-      background: linear-gradient(-45deg, #0d0d0d, #2e004f, #4b0082, #000);
-      background-size: 400% 400%;
-      animation: gradientFlow 12s ease infinite;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      padding: 20px;
-      text-align: center;
-    }
-
-    @keyframes gradientFlow {
+    @keyframes gradientMove {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
-    .top-buttons {
-      position: absolute;
-      top: 30px;
-      left: 20px;
-      right: 20px;
+    .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 10;
+      padding: 20px 40px;
+      flex-wrap: wrap;
     }
 
-    .logo img {
-      height: 40px;
-      width: auto;
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
     }
 
     .nav-links {
       display: flex;
-      gap: 15px;
       align-items: center;
-      position: relative;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
-    .nav-links a,
-    .connect-btn {
+    .nav-btn {
       padding: 10px 20px;
       border: 1px solid white;
-      border-radius: 30px;
+      border-radius: 25px;
       color: white;
       text-decoration: none;
+      background: transparent;
       font-weight: 500;
-      transition: background 0.3s, color 0.3s;
+      transition: 0.3s ease;
+      cursor: pointer;
     }
 
-    .nav-links a:hover,
-    .connect-btn:hover {
+    .nav-btn:hover {
       background-color: white;
       color: #4b0082;
     }
@@ -91,115 +77,604 @@
 
     .icon-popup {
       position: absolute;
-      top: 50px;
+      top: 110%;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #1a1a1a;
-      padding: 10px 15px;
+      background: #111;
+      border: 1px solid #555;
       border-radius: 10px;
+      padding: 10px;
       display: flex;
-      gap: 12px;
+      gap: 15px;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      z-index: 1000;
+      transition: 0.3s ease;
+      z-index: 10;
+    }
+
+    .connect-container:hover .icon-popup {
+      opacity: 1;
+      pointer-events: auto;
     }
 
     .icon-popup a {
       color: white;
       font-size: 18px;
-      transition: color 0.3s ease;
     }
 
     .icon-popup a:hover {
       color: #4b0082;
     }
 
-    /* Show icons on hover - desktop */
-    .connect-container:hover .icon-popup {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateX(-50%) translateY(10px);
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
     }
 
-    /* Hero text */
-    .hero-section h1 {
-      font-size: 70px;
-      font-weight: 600;
+    .hero h1 {
+      font-size: 64px;
       margin-bottom: 20px;
+      font-weight: 700;
     }
 
-    .hero-section p {
+    .hero p {
       font-size: 18px;
       max-width: 600px;
       line-height: 1.6;
     }
 
-    /* Mobile Styles */
+    .quote-section {
+      background-color: #000;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border-top: 4px solid #4b0082;
+      padding: 0 20px;
+    }
+
+    .quote-section p {
+      font-size: 28px;
+      line-height: 1.6;
+      font-weight: 400;
+      max-width: 700px;
+      margin: auto;
+      background: linear-gradient(270deg, #a000c5, #4800ff, #a000c5);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientFlow 6s ease infinite;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .works-section {
+      background-color: #000;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .works-section h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+      background: linear-gradient(270deg, #a000c5, #4800ff, #a000c5);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientFlow 6s ease infinite;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .work-card {
+      background-color: #111;
+      border-radius: 12px;
+      overflow: hidden;
+      padding: 20px;
+      text-align: left;
+      transition: transform 0.3s ease;
+      border: 1px solid #333;
+    }
+
+    .work-card:hover {
+      transform: scale(1.03);
+    }
+
+    .work-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .work-card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .work-card p {
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .view-more-wrapper {
+      margin-top: 40px;
+      text-align: right;
+    }
+
+    .view-more-link {
+      color: #a000c5;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.3s ease;
+    }
+
+    .view-more-link:hover {
+      color: #fff;
+    }
+
+    .fas.fa-arrow-right {
+      transition: transform 0.3s ease;
+    }
+
+    .view-more-link:hover .fas.fa-arrow-right {
+      transform: translateX(5px);
+    }
+
+    .principles {
+      background-color: #111;
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .section-title {
+      color: #c724ff;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+
+    .principles-grid {
+      display: grid;
+      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: #000;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: left;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
     @media (max-width: 768px) {
-      .top-buttons {
+      .navbar {
         flex-direction: column;
         align-items: flex-start;
-        gap: 15px;
       }
 
       .nav-links {
         flex-direction: column;
-        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+        margin-top: 10px;
       }
 
-      .connect-container:hover .icon-popup {
-        /* disable hover effect on small screens */
-        opacity: 0;
-        pointer-events: none;
+      .icon-popup {
+        left: 0;
+        transform: none;
       }
 
-      .connect-container .icon-popup.active {
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateX(-50%) translateY(10px);
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .quote-section p {
+        font-size: 22px;
+      }
+
+      .view-more-wrapper {
+        text-align: center;
       }
     }
+  .projects-section {
+    background-color: #000;
+    padding: 60px 20px;
+    text-align: center;
+    color: white;
+  }
+
+  .projects-title {
+    color: #c724ff;
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .projects-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px;
+  }
+
+  .logo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo-item img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .logo-item img:hover {
+    transform: scale(1.1); 
+  }
+
+  .logo-item p {
+    font-size: 1rem;
+    color: #fff;
+    margin-top: 5px;
+  }
+
+  @media (max-width: 600px) {
+    .logo-item img {
+      width: 100px;
+    }
+  }
+  .testimonial-section {
+    background-color: #0e0d0d;
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .testimonial-title {
+    color: #c724ff;
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .testimonial-carousel {
+    max-width: 900px;
+    margin: auto;
+    position: relative;
+  }
+
+  .testimonial-slide {
+    display: none;
+  }
+
+  .testimonial-slide.active {
+    display: block;
+  }
+
+  .testimonial-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+
+  .client-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .client-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .client-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  .client-role {
+    font-size: 0.9rem;
+    color: #aaa;
+  }
+
+  .testimonial-dots {
+    margin-top: 30px;
+  }
+
+  .dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #888;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .dot.active {
+    background-color: #c724ff;
+  }
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #111;
+    padding: 20px;
+    border-top: 1px solid #333;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .works-grid a {
+  text-decoration: none;
+  font-family: sans-serif;
+  color: inherit; 
+}
+
+.works-grid a:hover {
+  color: #c724ff; 
+}
+
+a {
+  text-decoration: none;
+}
+
+
+
+}
   </style>
 </head>
 <body>
 
-  <section class="hero-section">
-    <div class="top-buttons">
-      <div class="logo">
-        <img src="reallogo-removebg-preview.png" alt="Logo">
-      </div>
+  <nav class="navbar">
 
-      <div class="nav-links">
-        <a href="#about">ABOUT ME</a>
-        <div class="connect-container">
-          <a href="#connect" class="connect-btn" onclick="toggleIcons(event)">CONNECT</a>
-          <div class="icon-popup" id="popup-icons">
-            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://behance.net" target="_blank"><i class="fab fa-behance"></i></a>
-            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="mailto:youremail@example.com"><i class="fas fa-envelope"></i></a>
-          </div>
+     <div class="nav-links" id="navLinks">
+
+     <div class="hamburger" onclick="toggleMenu()">
+       <i class="fas fa-bars"></i>
+     </div>
+  
+    <div class="logo">Coded_UX</div>
+    <div class="nav-links">
+      <a href="home.html" class="nav-btn">HOME</a>
+      <a href="#projects" class="nav-btn">PROJECTS</a>
+      <a href="about.html" class="nav-btn">ABOUT ME</a>
+
+      <div class="connect-container">
+        <button class="nav-btn">CONNECT</button>
+        <div class="icon-popup">
+          <a href="https://linkedin.com/in/godlyagunwa" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.behance.net/agunwagodly" aria-label="Behance" target="_blank"><i class="fab fa-behance"></i></a>
+          <a href="mailto:agunwagodly4@gmail.com" aria-label="Gmail" target="_blank class="><i class="fab fa-gmail"></i></a>
+          <a href="https://www.instagram.com/coded_ux?igsh=Zmxtd3duaDlmcmY1" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <h1>Godly Agunwa</h1>
+    <p>Hi, I’m a Nigerian Based Product Designer.<br>I love finding simple solutions to complex problems.</p>
+  </section>
+
+  <section class="quote-section">
+    <p>
+      Great designs should aspire to<br>
+      feel obvious, like there was<br>
+      never a better way to do it.
+    </p>
+  </section>
+
+  <section class="works-section" id="projects">
+    <h2>My Works</h2>
+    <div class="works-grid">
+      <div class="work-card"><img src="mywork01.png" alt="Project 1"><h3>Casestudy for an AI and Blockchain Integrated Website</h3><a href=" https://www.behance.net/gallery/206726887/Case-Study-for-an-AI-and-Blockchain-Integrated-Website">Click here for more details</a></div>
+      <div class="work-card"><img src="mywork02.png" alt="Project 2"><h3>FastZz: E-Car Charging System Mobile App UI ⚡</h3><a href="https://www.behance.net/gallery/207675135/FastZz-E-Car-Charging-System-Mobile-App-UI-">Click here for more details</a></div>
+      <div class="work-card"><img src="mywork03.png" alt="Project 3"><h3>Financial Investment Admin Dashboard: Analytics UX UI</h3><a href="https://www.behance.net/gallery/206588329/Financial-Investment-Admin-Dashboard-Analytics-UX-UI">Click for here more details.</a></div>
+      <div class="work-card"><img src="mywork04.png" alt="Project 4"><h3>Mobile UI Design For E-Commerce App</h3><a href=" https://www.behance.net/gallery/205211845/Mobile-UI-Design-for-E-Commerce-App">Click here for more details.</a></div>
+      <div class="work-card"><img src="mywork05.png" alt="Project 5"><h3>NVO Component & Cards</h3><a href=" https://www.behance.net/gallery/207245929/NVO-Components-Cards">Click here for more details</a></div>
+      <div class="work-card"><img src="mywork06.png" alt="Project 6"><h3>Assist Admin Dashboard: Analytics UX </h3><a href=" https://www.behance.net/gallery/206338693/Assist-Admin-Dashboard-Analytics-UX">Click here for more details</a></div>
+    </div>
+
+    <div class="view-more-wrapper">
+      <a href="https://www.behance.net/agunwagodly" target="_blank" class="view-more-link">
+        View More Project <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </section>
+
+  <section class="principles">
+    <h2 class="section-title">Principles</h2>
+    <div class="principles-grid">
+      <div class="card">
+        <h3>Know your User</h3>
+        <p>Start with user needs. Treat second-hand information about users with caution. Focus on user outcomes and design with data.</p>
+      </div>
+      <div class="card">
+        <h3>Clarity</h3>
+        <p>Create structure and hierarchy. Give users responses to the actions they take. Make decisions easy by avoiding paradox of choice.</p>
+      </div>
+      <div class="card">
+        <h3>Consistency</h3>
+        <p>Avoid uniformity, but be consistent. Re-use well-tested design patterns. Use ubiquitous language to create familiarity.</p>
+      </div>
+      <div class="card">
+        <h3>Effectiveness</h3>
+        <p>Your design should work everywhere; responsive is not only screen size. Leverage systems that scale.</p>
+      </div>
+      <div class="card">
+        <h3>Aesthetics</h3>
+        <p>Accessibility is not a bolt-on feature. First impressions do matter. Take the extra time to get it right.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects-section">
+  <h2 class="projects-title">I worked on Projects For</h2>
+  <div class="projects-logos">
+    <div class="logo-item">
+      <img src="work01.png" alt="MASIS Logo" />
+      <p>MASIS</p>
+    </div>
+
+    <div class="logo-item">
+      <img src="work02.png" alt="Horal Logo" />
+      <p>horal</p>
+    </div>
+
+    <div class="logo-item">
+      <img src="work03.png" alt="Delychop company logo" />
+      <p>delychop</p>
+    </div>
+
+    <div class="logo-item">
+      <img src="work04.png" alt="ProductPadi Logo" />
+      <p>ProductPadi</p>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial-section">
+  <h2 class="testimonial-title">What Clients are Saying</h2>
+
+  <div class="testimonial-carousel">
+  
+    <div class="testimonial-slide active">
+
+      <p class="testimonial-text">
+        Working with Mr Godly was an absolute joy.He doesn't just wait for instructions—he takes initiative and approaches every task with diligence.
+
+      He consistently demonstrates strong work ethics and I know he will do well in any future role.<br><br>
+      Mr Godly is a great team player with a positive attitude and always willing to go the extra mile.
+      I would not hesitate on any opportunity to work with Mr Godly on any future project!      </p>
+
+      <div class="client-info">
+        <img src="testimonial one.png" alt="Client 1" class="client-img" />
+        <div>
+          <p class="client-name">Ayomide Ojo</p>
+          <p class="client-role">Project /Product Manager</p>
         </div>
       </div>
     </div>
 
-    <h1>Godly Agunwa</h1>
-    <p>
-      Hi, I’m a Nigerian Based Product designer.<br>
-      I love finding simple solutions to complex problems.
-    </p>
-  </section>
+    <div class="testimonial-slide">
+      <p class="testimonial-text">
+          I had the pleasure of working with Godly Agunwa on Product Padi, an AI-powered product management tool.
+           Godly was instrumental in prototyping our web app, introducing cool animations that brought our concepts to life. Even while working alongside the lead designer,
+           , his creativity and attention to detail stood out. His contributions significantly enhanced the user experience. I highly recommend Godly—he's a talented designer and a great team player. 
 
-  <script>
-    function toggleIcons(e) {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        const popup = document.getElementById("popup-icons");
-        popup.classList.toggle("active");
-      }
+      </p>
+
+      <div class="client-info">
+        <img src="testimonial two.jpg" alt="Client 2" class="client-img" />
+
+        <div>
+          <p class="client-name">Client Two</p>
+          <p class="client-role">React & Native Expo Developer.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-dots">
+      <span class="dot active" onclick="showSlide(0)"></span>
+      <span class="dot" onclick="showSlide(1)"></span>
+ 
+    </div>
+
+  </div>
+</section>
+
+<script>
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dots = document.querySelectorAll('.dot');
+
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active');
+      dots[i].classList.remove('active');
+    });
+
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+
+    currentSlide = index;
+  }
+
+  setInterval(() => {
+    const total = document.querySelectorAll('.testimonial-slide').length;
+    currentSlide = (currentSlide + 1) % total;
+    showSlide(currentSlide);
+  }, 6000);
+
+  function toggleMenu() {
+      const nav = document.getElementById('navLinks');
+      nav.classList.toggle('show');
     }
-  </script>
+
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.remove('show');
+  });
+});
+
+</script>
 
 </body>
 </html>
+
