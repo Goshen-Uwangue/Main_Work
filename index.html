@@ -15,56 +15,77 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(-45deg, #0d0d0d, #2e004f, #4b0082, #000);
-      background-size: 400% 400%;
-      animation: gradientMove 12s ease infinite;
-      color: white;
-    }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(-45deg, #0d0d0d, #2e004f, #4b0082, #0d0d0d);
+  background-size: 500% 500%;
+  animation: gradientBreathing 20s ease-in-out infinite;
+  color: white;
+}
 
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+ @keyframes gradientBreathing {
+  0% {
+    background-position: 0% 50%;
+    background-size: 450% 450%;
+  }
+  25% {
+    background-position: 50% 50%;
+    background-size: 500% 500%;
+  }
+  50% {
+    background-position: 100% 50%;
+    background-size: 550% 550%;
+  }
+  75% {
+    background-position: 50% 50%;
+    background-size: 500% 500%;
+  }
+  100% {
+    background-position: 0% 50%;
+    background-size: 450% 450%;
+  }
+}
 
+    /* =========================
+       STICKY NAVBAR + DROPDOWN
+       ========================= */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 20px 40px;
       flex-wrap: wrap;
-      position: relative; /* anchor dropdown */
-      z-index: 20;
+      position: sticky;    /* stays at the top while scrolling */
+      top: 0;
+      z-index: 1000;       /* above the rest of the content */
+      background: linear-gradient(-45deg, #0d0d0d, #2e004f, #4b0082, #000);
     }
 
     .logo { font-size: 24px; font-weight: bold; }
 
-    /* DROPDOWN NAV: hidden by default, vertical on all sizes, transparent */
+    /* Dropdown container (hidden by default) */
     .nav-links {
-      position: absolute;
-      top: 100%;
+      position: absolute;   /* anchored to navbar */
+      top: calc(100% + 8px);/* sits just below the navbar, with a small gap */
       left: 0;
-      right: 0;
-      display: none;
-      flex-direction: column;     /* vertical everywhere */
+      display: none;        /* hidden until hamburger clicked */
+      flex-direction: column;  /* vertical on all sizes */
       align-items: flex-start;
       gap: 12px;
       padding: 16px 40px;
-      background: transparent;    /* no dark background */
-      border: none;               /* no line */
+      background: transparent; /* transparent per your design */
+      border: none;
     }
     .nav-links.show { display: flex; }
 
-    /* Buttons: bigger radius, transparent */
+    /* Buttons */
     .nav-btn {
       padding: 12px 24px;
       border: 1px solid white;
-      border-radius: 32px; /* increased */
+      border-radius: 32px;
       color: white;
       text-decoration: none;
-      background: transparent; /* no black */
+      background: transparent;
       font-weight: 500;
       transition: 0.3s ease;
       cursor: pointer;
@@ -75,14 +96,14 @@
 
     .connect-container { position: relative; }
 
-    /* CONNECT icon popup: fully transparent (no dark box) */
+    /* CONNECT icon popup */
     .icon-popup {
       position: absolute;
       top: 110%;
       left: 50%;
       transform: translateX(-50%);
-      background: transparent;   /* removed dark bg */
-      border: none;              /* no border */
+      background: transparent;
+      border: none;
       border-radius: 12px;
       padding: 8px;
       display: flex;
@@ -96,19 +117,53 @@
     .icon-popup a { color: white; font-size: 18px; }
     .icon-popup a:hover { color: #c724ff; }
 
+    /* Hamburger button (semantic <button>) */
+    .hamburger {
+      display: block;
+      font-size: 24px;
+      cursor: pointer;
+      color: white;
+      margin-left: auto;
+      background: none;
+      border: none;
+      padding: 8px;
+      line-height: 1;
+    }
+
+    /* =========================
+       HERO
+       ========================= */
     .hero {
-      min-height: 100vh; display: flex; flex-direction: column;
-      justify-content: center; align-items: center; text-align: center; padding: 40px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
     }
     .hero h1 { font-size: 64px; margin-bottom: 20px; font-weight: 700; }
     .hero p { font-size: 18px; max-width: 600px; line-height: 1.6; }
 
+    /* =========================
+       QUOTE SECTION
+       ========================= */
     .quote-section {
-      background-color: #000; min-height: 100vh; display: flex; justify-content: center; align-items: center;
-      text-align: center; border-top: 4px solid #4b0082; padding: 0 20px;
+      background-color: #000;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border-top: 4px solid #4b0082;
+      padding: 0 20px;
     }
     .quote-section p {
-      font-size: 28px; line-height: 1.6; font-weight: 400; max-width: 700px; margin: auto;
+      font-size: 28px;
+      line-height: 1.6;
+      font-weight: 400;
+      max-width: 700px;
+      margin: auto;
       background: linear-gradient(270deg, #a000c5, #4800ff, #a000c5);
       background-size: 200% 200%;
       -webkit-background-clip: text;
@@ -121,6 +176,9 @@
       100% { background-position: 0% 50%; }
     }
 
+    /* =========================
+       WORKS SECTION
+       ========================= */
     .works-section { background-color: #000; padding: 100px 20px; text-align: center; }
     .works-section h2 {
       font-size: 36px; margin-bottom: 40px;
@@ -142,7 +200,6 @@
     .work-card img { width: 100%; height: auto; border-radius: 8px; margin-bottom: 15px; }
     .work-card h3 { font-size: 20px; margin-bottom: 10px; color: #fff; }
     .work-card p { font-size: 14px; color: #ccc; }
-
     .works-grid a { text-decoration: none; font-family: sans-serif; color: #c724ff; }
     .works-grid a:hover { color:#fff; }
 
@@ -155,6 +212,9 @@
     .fas.fa-arrow-right { transition: transform 0.3s ease; }
     .view-more-link:hover .fas.fa-arrow-right { transform: translateX(5px); }
 
+    /* =========================
+       PRINCIPLES SECTION
+       ========================= */
     .principles { background-color: #111; color: #fff; padding: 60px 20px; text-align: center; }
     .section-title { color: #c724ff; font-size: 2.5rem; margin-bottom: 40px; }
     .principles-grid {
@@ -165,32 +225,81 @@
     .card h3 { font-size: 1.3rem; margin-bottom: 15px; }
     .card p { font-size: 0.95rem; line-height: 1.6; color: #ccc; }
 
-    .projects-section { background-color: #000; padding: 60px 20px; text-align: center; color: white; }
-    .projects-title { color: #c724ff; font-size: 2rem; margin-bottom: 40px; }
+    .projects-section {
+  padding: 60px 20px;
+  text-align: center;
+  background: #111;
+}
 
-    /* Continuous marquee-style logo scroller (no blank gap, last logo fully visible) */
-    .projects-logos {
-      position: relative;
-      overflow: hidden;
-      padding: 20px 0;
-    }
-    .logo-track {
-      display: flex;
-      gap: 40px;
-      width: max-content;           /* shrink to content so -50% works */
-      animation: scroll-logos 30s linear infinite;
-      will-change: transform;
-    }
-    .logo-item { flex: 0 0 auto; text-align: center; }
-    .logo-item img { width: 100px; height: auto; transition: transform 0.3s ease; }
-    .logo-item img:hover { transform: scale(1.1); }
-    .logo-item p { font-size: 1rem; color: #fff; margin-top: 5px; }
+.projects-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-weight: 600;
+  color:#a000c5;
+}
 
-    @keyframes scroll-logos {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); } /* seamless because content is duplicated */
-    }
+/* Wrapper for scrolling logos */
+.projects-logos {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+}
 
+/* Track that moves infinitely */
+.logo-track {
+  display: flex;
+  animation: scroll 25s linear infinite; /* default speed */
+}
+
+/* Individual logo items */
+.logo-item {
+  flex: 0 0 auto;
+  width: 250px; /* adjust based on how wide you want each logo card */
+  text-align: center;
+  padding: 10px;
+}
+
+.logo-item img {
+  max-width: 150px;
+  max-height: 80px;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+}
+
+.logo-item p {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* Animation for continuous scroll */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Faster scrolling on smaller screens */
+@media (max-width: 768px) {
+  .logo-track {
+    animation: scroll 15s linear infinite;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-track {
+    animation: scroll 10s linear infinite;
+  }
+}
+
+    /* =========================
+       TESTIMONIALS
+       ========================= */
     .testimonial-section { background-color: #0e0d0d; color: #fff; padding: 60px 20px; text-align: center; }
     .testimonial-title { color: #c724ff; font-size: 2rem; margin-bottom: 30px; }
     .testimonial-carousel { max-width: 900px; margin: auto; position: relative; }
@@ -205,31 +314,17 @@
     .dot { height: 12px; width: 12px; margin: 0 5px; background-color: #888; border-radius: 50%; display: inline-block; cursor: pointer; }
     .dot.active { background-color: #c724ff; }
 
-    /* Hamburger always visible on all sizes */
-    .hamburger {
-      display: block;
-      font-size: 24px;
-      cursor: pointer;
-      color: white;
-    }
-
-    /* No need to change layout on desktop—menu is always vertical when opened */
+    /* Optional: small layout tweaks on mobile */
     @media (max-width: 768px) {
-      .hamburger { order: 2; margin-left: auto; }
-      .navbar { flex-direction: row; }
-      .logo { order: 1; }
+      .hero h1 { font-size: 42px; }
     }
   </style>
 </head>
 
 <body>
 
-  <nav class="navbar">
+  <nav class="navbar" role="navigation" aria-label="Main">
     <div class="logo">Coded_UX</div>
-
-    <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
-      <i class="fas fa-bars"></i>
-    </div>
 
     <div class="nav-links" id="navLinks">
       <a href="index.html" class="nav-btn">HOME</a>
@@ -237,7 +332,7 @@
       <a href="about.html" class="nav-btn">ABOUT ME</a>
 
       <div class="connect-container">
-        <button class="nav-btn">CONNECT</button>
+        <button class="nav-btn" type="button">CONNECT</button>
         <div class="icon-popup">
           <a href="https://linkedin.com/in/godlyagunwa" target="_blank"><i class="fab fa-linkedin"></i></a>
           <a href="https://www.behance.net/agunwagodly" target="_blank"><i class="fab fa-behance"></i></a>
@@ -246,7 +341,16 @@
         </div>
       </div>
     </div>
+
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-controls="navLinks" aria-expanded="false">
+      <i class="fas fa-bars" aria-hidden="true"></i>
+    </button>
   </nav>
+
+  <br>
+  <br>
+  <br>
+  <br>
 
   <section class="hero" id="home">
     <h1>Godly Agunwa</h1>
@@ -264,12 +368,12 @@
   <section class="works-section" id="projects">
     <h2>My Works</h2>
     <div class="works-grid">
-      <div class="work-card"><img src="mywork01.png" alt="Project 1"><h3>Casestudy for an AI and Blockchain Integrated Website</h3><a href="https://www.behance.net/gallery/206726887/Case-Study-for-an-AI-and-Blockchain-Integrated-Website">Click here for more details</a></div>
-      <div class="work-card"><img src="mywork02.png" alt="Project 2"><h3>FastZz: E-Car Charging System Mobile App UI ⚡</h3><a href="https://www.behance.net/gallery/207675135/FastZz-E-Car-Charging-System-Mobile-App-UI-">Click here for more details</a></div>
-      <div class="work-card"><img src="mywork03.png" alt="Project 3"><h3>Financial Investment Admin Dashboard: Analytics UX UI</h3><a href="https://www.behance.net/gallery/206588329/Financial-Investment-Admin-Dashboard-Analytics-UX-UI">Click for here more details.</a></div>
-      <div class="work-card"><img src="mywork04.png" alt="Project 4"><h3>Mobile UI Design For E-Commerce App</h3><a href="https://www.behance.net/gallery/205211845/Mobile-UI-Design-for-E-Commerce-App">Click here for more details.</a></div>
-      <div class="work-card"><img src="mywork05.png" alt="Project 5"><h3>NVO Component & Cards</h3><a href="https://www.behance.net/gallery/207245929/NVO-Components-Cards">Click here for more details</a></div>
-      <div class="work-card"><img src="mywork06.png" alt="Project 6"><h3>Assist Admin Dashboard: Analytics UX </h3><a href="https://www.behance.net/gallery/206338693/Assist-Admin-Dashboard-Analytics-UX">Click here for more details</a></div>
+      <div class="work-card"><img src="mywork01.png" alt="Project 1" aria-label="BizBuilder-AI"><h3>BizBuilder-AI</h3><a href="https://www.behance.net/gallery/232917899/BizBuilder-AI">Click here for more details</a></div>
+      <div class="work-card"><img src="mywork02.png" alt="Project 2" aria-label="FastZz: E-Car Charging System Mobile App UI ⚡"><h3>FastZz: E-Car Charging System Mobile App UI ⚡</h3><a href="https://www.behance.net/gallery/207675135/FastZz-E-Car-Charging-System-Mobile-App-UI-">Click here for more details</a></div>
+      <div class="work-card"><img src="mywork.03.png" alt="Project 3" aria-label="AI TOOL UX CASESTUDY"><h3>AI TOOL UX CASESTUDY</h3><a href="https://www.behance.net/gallery/226165855/AI-TOOL-UX-CASESTUDY">Click for here more details.</a></div>
+      <div class="work-card"><img src="mywork.04.png" alt="Project 4" aria-label="REAL-APE-NFT-LANDING-PAGE"><h3>REAL-APE-NFT-LANDING-PAGE</h3><a href="https://www.behance.net/gallery/207250725/REAL-APE-NFT-LANDING-PAGE">Click here for more details.</a></div>
+      <div class="work-card"><img src="mywork.05.png" alt="Project 5" aria-label="Solidity-Crypto-Exchange-Mobile-App-(Arounda-Inspired)"><h3>Solidity-Crypto-Exchange-Mobile-App-(Arounda-Inspired)</h3><a href="https://www.behance.net/gallery/207335269/Solidity-Crypto-Exchange-Mobile-App-(Arounda-Inspired)">Click here for more details</a></div>
+      <div class="work-card"><img src="mywork.06.jpg" alt="Project 6" aria-label="UX-Case-Study-for-a-PAyment-App"><h3>UX-Case-Study-for-a-PAyment-App </h3><a href="https://www.behance.net/gallery/205623147/UX-Case-Study-for-a-PAyment-App">Click here for more details</a></div>
     </div>
 
     <div class="view-more-wrapper">
@@ -305,45 +409,21 @@
     </div>
   </section>
 
-  <section class="projects-section">
-    <h2 class="projects-title">I worked on Projects For</h2>
+
+  <section class="projects-section" id="projects">
+    <h2>I worked on Projects For</h2>
     <div class="projects-logos">
       <div class="logo-track">
-        <!-- Set 1 -->
-        <div class="logo-item">
-          <img src="work01.png" alt="MASIS Logo" />
-          <p>MASIS</p>
-        </div>
-        <div class="logo-item">
-          <img src="work02.png" alt="Horal Logo" />
-          <p>horal</p>
-        </div>
-        <div class="logo-item">
-          <img src="work03.png" alt="Delychop company logo" />
-          <p>delychop</p>
-        </div>
-        <div class="logo-item">
-          <img src="work04.png" alt="ProductPadi Logo" />
-          <p>ProductPadi</p>
-        </div>
-
-        <!-- Duplicated set for seamless loop -->
-        <div class="logo-item">
-          <img src="work01.png" alt="MASIS Logo" />
-          <p>MASIS</p>
-        </div>
-        <div class="logo-item">
-          <img src="work02.png" alt="Horal Logo" />
-          <p>horal</p>
-        </div>
-        <div class="logo-item">
-          <img src="work03.png" alt="Delychop company logo" />
-          <p>delychop</p>
-        </div>
-        <div class="logo-item">
-          <img src="work04.png" alt="ProductPadi Logo" />
-          <p>ProductPadi</p>
-        </div>
+        <!-- First set -->
+        <div class="logo-item"><img src="work01.png" alt="MASIS" /><p>MASIS</p></div>
+        <div class="logo-item"><img src="work02.png" alt="horal" /><p>horal</p></div>
+        <div class="logo-item"><img src="work03.png" alt="delychop" /><p>delychop</p></div>
+        <div class="logo-item"><img src="work04.png" alt="ProductPadi" /><p>ProductPadi</p></div>
+        <!-- Duplicate set -->
+        <div class="logo-item"><img src="work01.png" alt="MASIS" /><p>MASIS</p></div>
+        <div class="logo-item"><img src="work02.png" alt="horal" /><p>horal</p></div>
+        <div class="logo-item"><img src="work03.png" alt="delychop" /><p>delychop</p></div>
+        <div class="logo-item"><img src="work04.png" alt="ProductPadi" /><p>ProductPadi</p></div>
       </div>
     </div>
   </section>
@@ -391,6 +471,7 @@
   </section>
 
   <script>
+    // ======== Testimonials ========
     let currentSlide = 0;
 
     function showSlide(index) {
@@ -399,11 +480,11 @@
 
       slides.forEach((slide, i) => {
         slide.classList.remove('active');
-        dots[i].classList.remove('active');
+        if (dots[i]) dots[i].classList.remove('active');
       });
 
       slides[index].classList.add('active');
-      dots[index].classList.add('active');
+      if (dots[index]) dots[index].classList.add('active');
       currentSlide = index;
     }
 
@@ -413,11 +494,11 @@
       showSlide(currentSlide);
     }, 6000);
 
+    // ======== Nav menu toggle ========
     function toggleMenu() {
       const nav = document.getElementById('navLinks');
       const trigger = document.querySelector('.hamburger');
       nav.classList.toggle('show');
-      // accessibility hint
       const expanded = trigger.getAttribute('aria-expanded') === 'true';
       trigger.setAttribute('aria-expanded', (!expanded).toString());
     }
@@ -428,6 +509,27 @@
         document.getElementById('navLinks').classList.remove('show');
         document.querySelector('.hamburger').setAttribute('aria-expanded', 'false');
       });
+    });
+
+    // Close when clicking outside the navbar dropdown
+    document.addEventListener('click', (e) => {
+      const nav = document.getElementById('navLinks');
+      const hamburger = document.querySelector('.hamburger');
+      const navbar = document.querySelector('.navbar');
+      if (!navbar.contains(e.target) && nav.classList.contains('show')) {
+        nav.classList.remove('show');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const nav = document.getElementById('navLinks');
+        const hamburger = document.querySelector('.hamburger');
+        nav.classList.remove('show');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
     });
   </script>
 
