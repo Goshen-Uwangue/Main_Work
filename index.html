@@ -113,9 +113,24 @@ body {
       transition: 0.3s ease;
       z-index: 30;
     }
-    .connect-container:hover .icon-popup { opacity: 1; pointer-events: auto; }
+
     .icon-popup a { color: white; font-size: 18px; }
     .icon-popup a:hover { color: #c724ff; }
+
+    /* Desktop hover */
+@media (min-width: 769px) {
+  .connect-container:hover .icon-popup {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* Mobile toggle will be handled with JS */
+.icon-popup.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 
     /* Hamburger button (semantic <button>) */
     .hamburger {
@@ -531,6 +546,18 @@ body {
         hamburger.setAttribute('aria-expanded', 'false');
       }
     });
+
+    // ======== Mobile CONNECT toggle ========
+const connectBtn = document.querySelector('.connect-container .nav-btn');
+const iconPopup = document.querySelector('.connect-container .icon-popup');
+
+connectBtn.addEventListener('click', (e) => {
+  if (window.innerWidth <= 768) { // only mobile
+    e.preventDefault(); // stop normal behavior
+    iconPopup.classList.toggle('show');
+  }
+});
+
   </script>
 
 </body>
