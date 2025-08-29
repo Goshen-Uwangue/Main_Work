@@ -18,51 +18,70 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-/* =========================
-   NAVBAR
-   ========================= */
+/* ======== NAVBAR ======== */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  flex-wrap: wrap;
+  padding: 16px 20px;
   position: sticky;
   top: 0;
   z-index: 1000;
   background: linear-gradient(-45deg, #0d0d0d, #2e004f, #4b0082, #000);
 }
 
-.logo { font-size: 24px; font-weight: bold; }
+.logo { font-size: 22px; font-weight: bold; }
 
 .nav-links {
-  position: absolute;
-  top: calc(100% + 8px);
-  left: 0;
-  display: none;
+  display: none; /* hidden by default on mobile */
   flex-direction: column;
-  align-items: flex-start;
   gap: 12px;
-  padding: 16px 40px;
-  background: transparent;
-  border: none;
+  width: 100%;             /* take full width */
+  background: #111;        /* solid bg so text is visible */
+  padding: 16px 20px;
+  border-radius: 0 0 10px 10px;
 }
 
 .nav-links.show { display: flex; }
 
 .nav-btn {
-  padding: 12px 24px;
+  padding: 12px 20px;
   border: 1px solid white;
-  border-radius: 32px;
+  border-radius: 28px;
   color: white;
   text-decoration: none;
   background: transparent;
   font-weight: 500;
   transition: 0.3s ease;
   cursor: pointer;
-  display: inline-block;
+  text-align: center;
 }
 .nav-btn:hover { background-color: white; color: #4b0082; }
+
+.hamburger {
+  display: block;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  background: none;
+  border: none;
+  padding: 8px;
+  margin-left: auto;
+}
+
+/* ======== Responsive navbar ======== */
+@media (min-width: 769px) {
+  .hamburger { display: none; }
+  .nav-links {
+    display: flex !important;
+    flex-direction: row;
+    position: static;
+    width: auto;
+    background: transparent;
+    padding: 0;
+    gap: 20px;
+  }
+}
 
 .connect-container { position: relative; }
 
@@ -98,16 +117,7 @@ body {
   pointer-events: auto;
 }
 
-.hamburger {
-  display: block;
-  font-size: 24px;
-  cursor: pointer;
-  color: white;
-  margin-left: auto;
-  background: none;
-  border: none;
-  padding: 8px;
-}
+
 
 /* =========================
    ABOUT SECTION
