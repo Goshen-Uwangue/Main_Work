@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coded_UX</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* =========================
+       RESET & GLOBAL
+       ========================= */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: black;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; }
+
+    /* =========================
+       NAVBAR
+       ========================= */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: linear-gradient(-45deg, #0d0d0d, #2e004f, #4b0082, #000);
+    }
+
+    .logo { font-size: 24px; font-weight: bold; }
+
+    .nav-links {
+      position: absolute;
+      top: 70px;
+      right: -100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px;
+      background: #111;
+      width: 250px;
+      height: calc(100vh - 70px);
+      transition: right 0.3s ease-in-out;
+    }
+    .nav-links.show { right: 0; }
+
+    .nav-btn {
+      padding: 12px 24px;
+      border: 1px solid white;
+      border-radius: 32px;
+      color: white;
+      background: transparent;
+      font-weight: 500;
+      transition: 0.3s ease;
+      cursor: pointer;
+      display: inline-block;
+    }
+    .nav-btn:hover { background-color: white; color: #4b0082; }
+
+    .connect-container { position: relative; }
+
+    .icon-popup {
+      margin-top: 10px;
+      display: flex;
+      gap: 15px;
+    }
+    .icon-popup a { color: white; font-size: 18px; }
+    .icon-popup a:hover { color: #c724ff; }
+
+    .hamburger {
+      display: block;
+      font-size: 24px;
+      cursor: pointer;
+      color: white;
+      margin-left: auto;
+      background: none;
+      border: none;
+      padding: 8px;
+    }
+
+    @media (min-width: 769px) {
+      .hamburger { display: none; }
+      .nav-links {
+        position: static;
+        flex-direction: row;
+        align-items: center;
+        background: transparent;
+        width: auto;
+        height: auto;
+        padding: 0;
+        gap: 12px;
+        right: 0;
+      }
+      .connect-container:hover .icon-popup {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+
+/* =========================
+   ABOUT SECTION
+   ========================= */
+.about-section {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.about-wrapper {
+  max-width: 1000px;
+  width: 100%;
+  padding: 40px;
+  background-color: #0e0e0e;
+  border-radius: 10px;
+  line-height: 1.8;
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: wrap; /* Ensures wrapping on smaller screens */
+}
+
+.float-img {
+  flex: 0 0 auto;
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 250px;
+}
+
+.about-text p {
+  margin-bottom: 1.5rem;
+  color: #ddd;
+  text-align: justify;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .about-wrapper {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .float-img {
+    margin: 0 auto 20px auto;
+  }
+
+  .about-text p {
+    text-align: left;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- =========================
+       NAVBAR
+       ========================= -->
+  <nav class="navbar">
+    <div class="logo">Coded_UX</div>
+
+    <div class="nav-links" id="navLinks">
+      <a href="index.html" class="nav-btn">HOME</a>
+      <a href="about.html" class="nav-btn">ABOUT ME</a>
+      <div class="connect-container">
+        <button class="nav-btn" type="button">CONNECT</button>
+        <div class="icon-popup">
+          <a href="https://linkedin.com/in/godlyagunwa" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.behance.net/agunwagodly" target="_blank"><i class="fab fa-behance"></i></a>
+          <a href="mailto:agunwagodly4@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.instagram.com/coded_ux" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-controls="navLinks" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+  </nav>
+
+  <!-- =========================
+       ABOUT SECTION
+       ========================= -->
+  <main class="about-section">
+    <div class="about-wrapper">
+      <img src="aguwa.png.png" alt="Portrait of Godly Agunwa" class="float-img" />
+
+      <div class="about-text">
+        <p><strong>I am Godly Agunwa</strong> — a Product Designer who’s obsessed with building real products that solve real problems for real users.</p>
+        <p>My journey into product design wasn’t just about aesthetics. It was born out of a deep curiosity for how people think, struggle, adapt, and interact with digital tools. Over the years, I’ve helped founders,
+          co-founders, and developers bring their ideas to life — not just through clean UI (User Interface), but thoughtful UX (User Experience) that genuinely works.</p>
+        <p>I believe good design isn’t loud — it’s invisible. It disappears behind clarity, empathy, and usability. 
+          And that belief has guided my work across countless design sprints, wireframe scraps, pixel-perfect layouts, and late-night user interviews.</p>
+        <p>On LinkedIn, I create bold, practical content that connects deeply with startup builders — the people wearing too many hats and still trying to launch something meaningful. 
+          I talk about the messy parts of design: ego, iteration, mistakes, and learning fast by listening.</p>
+        <p>What sets me apart isn’t a beautiful portfolio.
+          It’s that I speak product as much as I speak design. I’m here for the founders who want a design partner — not just a screen decorator.
+          When I’m not designing, I’m sharing tools, ideas, and resources that help both designers and developers work smarter, build faster,
+          and stay creative.</p>
+        <p>Let’s build what matters. And make sure it feels damn good to use.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- =========================
+       SCRIPT
+       ========================= -->
+  <script>
+    // ======== Nav menu toggle ========
+    function toggleMenu() {
+      const nav = document.getElementById('navLinks');
+      const trigger = document.querySelector('.hamburger');
+      nav.classList.toggle('show');
+      const expanded = trigger.getAttribute('aria-expanded') === 'true';
+      trigger.setAttribute('aria-expanded', (!expanded).toString());
+    }
+
+    // Close menu after clicking any nav button except CONNECT
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.textContent.trim().toUpperCase() === "CONNECT") return;
+        document.getElementById('navLinks').classList.remove('show');
+        document.querySelector('.hamburger').setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+</html>
