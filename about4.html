@@ -63,31 +63,48 @@
     .icon-popup a { color: white; font-size: 18px; }
     .icon-popup a:hover { color: #c724ff; }
 
-    .hamburger {
-      display: block;
-      font-size: 24px;
-      cursor: pointer;
-      color: white;
-      margin-left: auto;
-      background: none;
-      border: none;
-      padding: 8px;
-    }
+/* Always show hamburger */
+.hamburger {
+  display: block;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  margin-left: auto;
+  background: none;
+  border: none;
+  padding: 8px;
+  z-index: 1100;
+}
 
-    @media (min-width: 769px) {
-      .hamburger { display: none; }
-      .nav-links {
-        position: static;
-        flex-direction: row;
-        align-items: center;
-        background: transparent;
-        width: auto;
-        height: auto;
-        padding: 0;
-        gap: 12px;
-        right: 0;
-      }
-    }
+/* Hide nav-links by default */
+.nav-links {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 40px;
+  background: #000;
+  border-radius: 8px;
+  position: absolute;
+  top: 100%;   /* just below navbar */
+  right: 0;
+  width: 250px;
+  z-index: 1000;
+}
+
+/* Show nav-links when toggled */
+.nav-links.show {
+  display: flex;
+}
+
+/* Remove the desktop override that forced nav-links visible */
+@media (min-width: 769px) {
+  .nav-links {
+    position: absolute;
+    width: 250px;
+  }
+}
+
 
     /* =========================
        ABOUT SECTION
@@ -225,6 +242,17 @@
         document.querySelector('.hamburger').setAttribute('aria-expanded', 'false');
       });
     });
+
+    // Toggle hamburger menu
+document.querySelector('.hamburger').addEventListener('click', () => {
+  document.querySelector('.nav-links').classList.toggle('show');
+});
+
+// Toggle CONNECT popup
+document.querySelector('.connect-container button').addEventListener('click', () => {
+  document.querySelector('.connect-container').classList.toggle('active');
+});
+
   </script>
 </body>
 </html>
