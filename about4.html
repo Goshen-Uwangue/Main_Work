@@ -41,34 +41,36 @@
 
     .logo { font-size: 24px; font-weight: bold; }
 
-    .nav-links {
-      position: absolute;
-      top: 70px;
-      right: -100%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 16px;
-      padding: 20px;
-      background: #111;
-      width: 250px;
-      height: calc(100vh - 70px);
-      transition: right 0.3s ease-in-out;
-    }
-    .nav-links.show { right: 0; }
 
-    .nav-btn {
-      padding: 12px 24px;
-      border: 1px solid white;
-      border-radius: 32px;
-      color: white;
-      background: transparent;
-      font-weight: 500;
-      transition: 0.3s ease;
-      cursor: pointer;
-      display: inline-block;
-    }
-    .nav-btn:hover { background-color: white; color: #4b0082; }
+    .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  flex-wrap: wrap;
+  position: sticky;     /* stays on top */
+  top: 0;
+  z-index: 1000;
+  background: linear-gradient(-45deg, #0d0d0d, #2e004f, #4b0082, #000);
+}
+
+/* Nav links should stay relative to navbar */
+.nav-links {
+  position: relative;   /* instead of absolute */
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 40px;
+  background: #000;     /* give it a solid bg so text is readable */
+  border-radius: 8px;
+}
+
+.nav-links.show {
+  display: flex;
+}
+
+    
 
     .connect-container { position: relative; }
 
@@ -180,7 +182,7 @@
 
     <div class="nav-links" id="navLinks">
       <a href="index.html" class="nav-btn">HOME</a>
-      <a href="about.html" class="nav-btn">ABOUT ME</a>
+      <a href="about4.html" class="nav-btn">ABOUT ME</a>
       <div class="connect-container">
         <button class="nav-btn" type="button">CONNECT</button>
         <div class="icon-popup">
