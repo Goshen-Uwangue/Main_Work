@@ -24,88 +24,70 @@
     }
     a { text-decoration: none; }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  flex-wrap: wrap;
-  position: sticky;     /* stays on top */
-  top: 0;
-  z-index: 1000;
-  background: linear-gradient(-45deg, #0d0d0d, #2e004f, #4b0082, #000);
-}
+    /* =========================
+       NAVBAR
+       ========================= */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: linear-gradient(-45deg, #0d0d0d, #2e004f, #4b0082, #000);
+    }
 
-/* Nav links should stay relative to navbar */
-.nav-links {
-  position: relative;   /* instead of absolute */
-  display: none;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 16px 40px;
-  background: #000;     /* give it a solid bg so text is readable */
-  border-radius: 8px;
-}
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px 40px;
+      background: #000;
+      border-radius: 8px;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 250px;
+      z-index: 1000;
+    }
 
-.nav-links.show {
-  display: flex;
-}
+    .nav-links.show {
+      display: flex;
+    }
 
-
-    .connect-container { position: relative; }
+    .connect-container {
+      position: relative;
+    }
 
     .icon-popup {
+      display: none;
       margin-top: 10px;
-      display: flex;
+      flex-direction: row;
       gap: 15px;
     }
+
+    .connect-container.active .icon-popup {
+      display: flex;
+    }
+
     .icon-popup a { color: white; font-size: 18px; }
     .icon-popup a:hover { color: #c724ff; }
 
-/* Always show hamburger */
-.hamburger {
-  display: block;
-  font-size: 24px;
-  cursor: pointer;
-  color: white;
-  margin-left: auto;
-  background: none;
-  border: none;
-  padding: 8px;
-  z-index: 1100;
-}
-
-/* Hide nav-links by default */
-.nav-links {
-  display: none;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 16px 40px;
-  background: #000;
-  border-radius: 8px;
-  position: absolute;
-  top: 100%;   /* just below navbar */
-  right: 0;
-  width: 250px;
-  z-index: 1000;
-}
-
-/* Show nav-links when toggled */
-.nav-links.show {
-  display: flex;
-}
-
-/* Remove the desktop override that forced nav-links visible */
-@media (min-width: 769px) {
-  .nav-links {
-    position: absolute;
-    width: 250px;
-  }
-}
-
-
+    /* Hamburger */
+    .hamburger {
+      display: block;
+      font-size: 24px;
+      cursor: pointer;
+      color: white;
+      margin-left: auto;
+      background: none;
+      border: none;
+      padding: 8px;
+      z-index: 1100;
+    }
 
     /* =========================
        ABOUT SECTION
@@ -198,6 +180,18 @@
     </button>
   </nav>
 
+
+  <br>
+
+  <br>
+
+  <br>
+
+  <br>
+
+  <br>
+
+  <br>
   <!-- =========================
        ABOUT SECTION
        ========================= -->
@@ -226,7 +220,7 @@
        SCRIPT
        ========================= -->
   <script>
-    // ======== Nav menu toggle ========
+    // Toggle hamburger menu
     function toggleMenu() {
       const nav = document.getElementById('navLinks');
       const trigger = document.querySelector('.hamburger');
@@ -244,16 +238,10 @@
       });
     });
 
-    // Toggle hamburger menu
-document.querySelector('.hamburger').addEventListener('click', () => {
-  document.querySelector('.nav-links').classList.toggle('show');
-});
-
-// Toggle CONNECT popup
-document.querySelector('.connect-container button').addEventListener('click', () => {
-  document.querySelector('.connect-container').classList.toggle('active');
-});
-
+    // Toggle CONNECT popup
+    document.querySelector('.connect-container button').addEventListener('click', () => {
+      document.querySelector('.connect-container').classList.toggle('active');
+    });
   </script>
 </body>
 </html>
